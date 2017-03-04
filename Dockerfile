@@ -1,9 +1,9 @@
 FROM meteorhacks/meteord
 MAINTAINER leo.lou@gov.bc.ca
 
+RUN apt-get update && apt-get install git 
 RUN git config --global url.https://github.com/.insteadOf git://github.com/ \
   && npm install -g gulp
-
 RUN mkdir -p /app  
 WORKDIR /app
 ADD . /app
