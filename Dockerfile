@@ -9,6 +9,7 @@ RUN apk update \
 RUN mkdir -p /app  
 WORKDIR /app
 ADD . /app
+RUN curl https://install.meteor.com | /bin/sh
 RUN npm install && npm update
 RUN cd meteor && meteor 
 RUN cd /app && gulp
