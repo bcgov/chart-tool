@@ -6,13 +6,7 @@ RUN apk update \
   && git config --global url.https://github.com/.insteadOf git://github.com/ \
   && npm install -g gulp
 
-RUN mkdir -p /app
-  
-RUN git clone $FEATURESRC /tmp/repo1 \
-  && git -C /tmp/repo1 pull \
-  && cp -r /tmp/repo1/* /app \
-  && rm -rf /tmp/repo1 
-  
+RUN mkdir -p /app  
 WORKDIR /app
 ADD . /app
 RUN npm install && npm update
