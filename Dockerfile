@@ -10,6 +10,7 @@ RUN mkdir -p /app
 WORKDIR /app
 ADD . /app
 RUN npm install && npm update
+RUN cd meteor && meteor && gulp
 RUN adduser -S app
 RUN chown -R app:0 /app && chmod -R 770 /app
 RUN apk del --purge alpine-sdk python libffi libffi-dev  
